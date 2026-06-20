@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lộ trình dự án "Hạc" — Portfolio Roadmap</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Playfair Display, Be Vietnam Pro, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            ink: {
+              800: '#140E11',
+              900: '#0A0608',
+            },
+            son: {
+              300: '#E27386',
+              400: '#D2556B',
+              500: '#B73D50',
+              600: '#8E2838',
+            },
+            gold: {
+              300: '#E8CE8E',
+              400: '#DCBA6E',
+              500: '#C9A24E',
+              600: '#A37E33',
+            },
+            crane: {
+              100: '#E2E6ED',
+              200: '#C1C7D2',
+              500: '#4C6079',
+            },
+            violet: {
+              900: '#1B0B24',
+              950: '#0C0412',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar with high contrast */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0608;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #B73D50;
+      border: 2px solid #0A0608;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C9A24E;
+    }
+
+    body {
+      /* Deep celestial gradient with high contrast base */
+      background: radial-gradient(circle at 50% 0%, #291138 0%, #0A0608 80%);
+      background-attachment: fixed;
+    }
+
+    .card-glow {
+      box-shadow: 0 4px 30px rgba(107, 46, 115, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(199, 162, 78, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-glow:hover {
+      border-color: rgba(199, 162, 78, 0.4);
+      box-shadow: 0 10px 40px rgba(183, 61, 80, 0.2);
+    }
+
+    .checkbox-custom:checked + label {
+      background-color: #B73D50;
+      border-color: #D2556B;
+    }
+
+    .checkbox-custom:checked + label .checkbox-icon {
+      transform: scale(1);
+    }
+
+    /* Accordion transition logic */
+    .phase-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .phase-content.active {
+      max-height: 3000px;
+      opacity: 1;
+    }
+
+    .chevron-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .phase-header.active .chevron-icon {
+      transform: rotate(180deg);
+      color: #C9A24E;
+    }
+
+    /* Highlight completed phase header */
+    .phase-card.completed {
+      border-color: rgba(201, 162, 78, 0.4);
+      background: rgba(20, 14, 17, 0.6);
+    }
+  </style>
+</head>
+<body class="font-sans text-stone-100 min-h-screen pb-20 selection:bg-son-500 selection:text-white leading-relaxed">
+
+  <!-- Header Section -->
+  <header class="max-w-5xl mx-auto px-6 pt-12 pb-6 relative overflow-hidden">
+    <!-- Traditional Border ornament -->
+    <div class="h-2 w-full flex justify-between items-center opacity-70">
+      <div class="w-1/3 h-[1px] bg-gradient-to-r from-transparent to-gold-400"></div>
+      <div class="text-gold-400 font-serif px-2 text-sm">❖</div>
+      <div class="w-1/3 h-[1px] bg-gradient-to-l from-transparent to-gold-400"></div>
+    </div>
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between mt-8 gap-6">
+      <div>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-gold-300 bg-son-600/35 px-3 py-1 rounded border border-son-500/30 font-semibold">Vietnamese Neo-Traditional Luxe</span>
+          <span class="text-xs font-mono uppercase tracking-widest text-stone-100 bg-white/10 px-3 py-1 rounded border border-white/20">v1.0.0</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-white tracking-tight">
+          Lộ Trình Dự Án <span class="italic text-gold-300 font-semibold">"Hạc"</span>
+        </h1>
+        <p class="font-mono text-sm text-stone-300 mt-2 uppercase tracking-widest flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-son-400 animate-pulse"></span>
+          PERSONAL WEBSITE &bull; PORTFOLIO ROADMAP &bull; MINHNHUT
+        </p>
+      </div>
+
+      <!-- Live Circular Progress -->
+      <div class="bg-ink-800/95 p-5 rounded-xl border border-gold-500/25 flex items-center gap-4 card-glow min-w-[280px]">
+        <div class="relative w-16 h-16 flex-shrink-0">
+          <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+            <path class="text-stone-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path id="progress-circle" class="text-son-400 transition-all duration-500 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span id="progress-percent" class="font-mono text-lg font-bold text-gold-300">0%</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs uppercase font-mono tracking-widest text-stone-300 font-semibold">Tiến độ tổng thể / Progress</h3>
+          <p class="text-base font-mono font-bold text-white mt-1">
+            <span id="checked-count" class="text-son-400">0</span>
+            <span class="text-stone-400">/</span>
+            <span id="total-count" class="text-stone-200">0</span> <span class="text-xs text-stone-400 font-sans font-normal">tasks</span>
+          </p>
+          <button onclick="resetProgress()" class="text-[10px] uppercase font-mono tracking-widest text-stone-400 hover:text-son-300 transition mt-1.5 underline decoration-son-500/50">Reset Progress</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation & Quick Stats -->
+  <main class="max-w-5xl mx-auto px-6 mt-4">
+    <!-- Visual Pipeline Overview -->
+    <section class="bg-ink-800/95 p-6 rounded-2xl border border-gold-500/20 mb-8 card-glow">
+      <div class="flex items-center justify-between mb-5 border-b border-white/10 pb-3">
+        <h2 class="font-display text-xl text-gold-400 font-semibold flex items-center gap-2">
+          <span class="text-son-500">❖</span> Tổng quan tiến trình / Pipeline Overview
+        </h2>
+        <span class="text-xs font-mono text-stone-300">Bấm các ô bên dưới để nhảy nhanh / Click phases to jump</span>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <!-- Phase 0 -->
+        <button onclick="togglePhase('phase-0')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P0</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Init & Content</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">Core Prep & Git</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-0" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 1 -->
+        <button onclick="togglePhase('phase-1')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P1</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Foundation</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">i18n & Tokens</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-1" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 2 -->
+        <button onclick="togglePhase('phase-2')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P2</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">3D & Hero</div>
+          <div class="text-[10px] text-son-300 mt-1 font-mono font-semibold">⚠️ High Risk</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-2" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 3 -->
+        <button onclick="togglePhase('phase-3')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P3</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Landing Layout</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">Sections & Motion</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-3" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 4 -->
+        <button onclick="togglePhase('phase-4')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P4</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Projects Gallery</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">Subpages & Cards</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-4" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
+        <!-- Phase 5 -->
+        <button onclick="togglePhase('phase-5')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P5</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Contact Route</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">API + Resend SDK</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-5" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 6 -->
+        <button onclick="togglePhase('phase-6')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P6</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">a11y / SEO / Perf</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">LCP & Focus Ring</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-6" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 7 -->
+        <button onclick="togglePhase('phase-7')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P7</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Light Testing</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">Vitest unit tests</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-7" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+        <!-- Phase 8 -->
+        <button onclick="togglePhase('phase-8')" class="p-3 bg-black/50 rounded-lg border border-white/10 hover:border-gold-500/40 text-left transition relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-1 font-mono text-[9px] text-stone-400 font-semibold">P8</div>
+          <div class="font-display text-xs text-stone-100 font-semibold group-hover:text-gold-300">Deploy Infra</div>
+          <div class="text-[10px] text-stone-300 mt-1 font-mono">Docker + Caddy</div>
+          <div class="w-full bg-white/10 h-1.5 mt-3 rounded-full overflow-hidden">
+            <div id="pbar-phase-8" class="bg-son-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Search / Filter bar -->
+    <div class="mb-6 flex flex-col sm:flex-row gap-3">
+      <input type="text" id="search-tasks" placeholder="Tìm kiếm công việc (ví dụ: docker, next-intl, tier)..." class="flex-grow bg-black/40 border border-gold-500/20 rounded-lg px-4 py-2.5 text-stone-100 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 font-mono text-sm placeholder:text-stone-500">
+      <div class="flex gap-2">
+        <button onclick="expandAll()" class="flex-1 sm:flex-initial bg-ink-800 border border-gold-500/35 text-xs font-mono text-stone-200 hover:text-gold-300 hover:bg-white/5 px-4 py-2.5 rounded transition">Mở hết (Expand)</button>
+        <button onclick="collapseAll()" class="flex-1 sm:flex-initial bg-ink-800 border border-gold-500/35 text-xs font-mono text-stone-200 hover:text-gold-300 hover:bg-white/5 px-4 py-2.5 rounded transition">Đóng hết (Collapse)</button>
+      </div>
+    </div>
+
+    <!-- PHASES CONTAINER -->
+    <div class="space-y-6">
+
+      <!-- PHASE 0 -->
+      <div id="phase-0" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-0')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">00</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 0 — Khởi tạo & Sửa nội dung <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Init & Content Setup</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Scaffold Next.js, cấu hình Git, đồng bộ hóa thông tin dự án đúng thực tế.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P0-Ready</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <div class="mb-5 bg-son-600/20 border-l-4 border-son-400 p-4 rounded-r">
+            <h4 class="font-mono text-xs font-bold text-son-300 uppercase tracking-widest">Đặc biệt quan trọng / Crucial Goal</h4>
+            <p class="text-sm text-stone-200 mt-1">Đưa các thay đổi thực tế về PMS public và live-only links vào source code trước khi scaffold, không mang dữ liệu lỗi vào cấu trúc mới.</p>
+          </div>
+
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 0.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-0-1" class="checkbox-custom hidden" onclick="toggleTask('task-0-1')">
+              <label for="task-0-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 0.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">content/projects.ts</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Sửa file <code>content/projects.ts</code> khớp thực tế dự án đã khóa.</p>
+                <ul class="list-disc list-inside text-xs text-stone-300 mt-2 space-y-1.5 ml-1 leading-relaxed">
+                  <li>DevTeamOS (PMS): Đặt <code>private: false</code>, đổi <code>links.repo = 'https://github.com/MinhNhut05/devteam-os'</code>.</li>
+                  <li>SileTravel: Đổi <code>links.repo = 'https://github.com/MinhNhut05/canva-schedule'</code>.</li>
+                  <li>DevPath: <code>links.repo = null</code>, <code>links.live = 'https://devpathos.tech'</code>.</li>
+                  <li>ExamRoom: <code>links.repo = null</code>, <code>links.live = 'https://dung.devteamos.me'</code>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Task 0.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-0-2" class="checkbox-custom hidden" onclick="toggleTask('task-0-2')">
+              <label for="task-0-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 0.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">CLAUDE.md</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Cập nhật <code>CLAUDE.md</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Xóa dòng lỗi thời "PMS private &rarr; badge Private, không nút repo". Thay bằng quy tắc PMS public và có hiển thị repo.</p>
+              </div>
+            </div>
+
+            <!-- Task 0.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-0-3" class="checkbox-custom hidden" onclick="toggleTask('task-0-3')">
+              <label for="task-0-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 0.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Git Init</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Khởi tạo Git repo địa phương và setup file bỏ qua <code>.gitignore</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Phải bỏ qua <code>.env*</code>, <code>node_modules</code>, và <code>.next</code>. Tạo repo public trên GitHub bằng lệnh <code>gh repo create</code> khi sẵn sàng.</p>
+              </div>
+            </div>
+
+            <!-- Task 0.4 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-0-4" class="checkbox-custom hidden" onclick="toggleTask('task-0-4')">
+              <label for="task-0-4" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 0.4</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Scaffold</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng khung dự án Next.js (App Router, TypeScript, Tailwind CSS, pnpm).</p>
+                <div class="bg-black p-3 rounded border border-white/10 mt-2 font-mono text-xs text-stone-200 overflow-x-auto">
+                  pnpm create next-app . --ts --tailwind --app --src-dir --import-alias "@/*" --use-pnpm
+                </div>
+              </div>
+            </div>
+
+            <!-- Task 0.5 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-0-5" class="checkbox-custom hidden" onclick="toggleTask('task-0-5')">
+              <label for="task-0-5" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 0.5</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Dependencies</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Cài đặt các gói thư viện bổ sung (R3F, Motion, Smooth scroll, i18n, Contact).</p>
+                <div class="bg-black p-3 rounded border border-white/10 mt-2 font-mono text-xs text-stone-200 overflow-x-auto">
+                  pnpm add three @react-three/fiber @react-three/drei @react-three/postprocessing lenis framer-motion detect-gpu next-intl resend zod clsx tailwind-merge
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> <code>pnpm dev</code> (chạy mượt) &amp; <code>pnpm tsc --noEmit</code> (xanh)</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> LOW</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 1 -->
+      <div id="phase-1" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-1')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">01</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 1 — Xây dựng nền tảng <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Project Foundation</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Màu sắc, Typography, Smooth-scroll, Khung đa ngôn ngữ (next-intl) và Data.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P1-Core</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 1.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-1-1" class="checkbox-custom hidden" onclick="toggleTask('task-1-1')">
+              <label for="task-1-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 1.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">src/styles/tokens.css</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Định nghĩa toàn bộ CSS Variables hệ thống màu cổ điển vào <code>src/styles/tokens.css</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Map các biến màu này vào <code>tailwind.config.ts</code> (như `--son-500`, `--gold-500`, `--ink-900`, `--grad-nebula`).</p>
+              </div>
+            </div>
+
+            <!-- Task 1.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-1-2" class="checkbox-custom hidden" onclick="toggleTask('task-1-2')">
+              <label for="task-1-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 1.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Fonts & Body</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Nhúng font chữ qua <code>next/font</code> và cấu hình <code>globals.css</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Sử dụng: Playfair Display (Display), Be Vietnam Pro (UI/Body, đủ dấu Việt), JetBrains Mono (Code). Set nền <code>body</code> mặc định là gradient nebula tăm tối.</p>
+              </div>
+            </div>
+
+            <!-- Task 1.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-1-3" class="checkbox-custom hidden" onclick="toggleTask('task-1-3')">
+              <label for="task-1-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 1.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Lenis Provider</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo Smooth Scroll Provider bằng thư viện <code>lenis</code> bao bọc layout.</p>
+              </div>
+            </div>
+
+            <!-- Task 1.4 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-1-4" class="checkbox-custom hidden" onclick="toggleTask('task-1-4')">
+              <label for="task-1-4" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 1.4</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">next-intl Setup</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Setup khung đa ngôn ngữ <code>next-intl</code> với cấu trúc động <code>[locale]</code>.</p>
+                <ul class="list-disc list-inside text-xs text-stone-300 mt-2 space-y-1 ml-1 leading-relaxed">
+                  <li>Tạo <code>src/i18n/request.ts</code>, <code>src/middleware.ts</code>.</li>
+                  <li>Config mặc định <code>vi</code>, <code>localePrefix: 'as-needed'</code> để giữ URL tiếng Việt sạch (không có tiền tố /vi/).</li>
+                  <li>Tạo file từ vựng dịch thuật <code>messages/vi.json</code> rỗng để điền sau.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Task 1.5 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-1-5" class="checkbox-custom hidden" onclick="toggleTask('task-1-5')">
+              <label for="task-1-5" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 1.5</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Data Migrate</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Di chuyển các file dữ liệu sạch từ <code>content/</code> ở gốc vào <code>src/content/</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Đảm bảo import đúng đường dẫn tương đối hoặc alias <code>@/content/*</code>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> URL "/" hiển thị nền tím nebula mượt, font chính xác, không lỗi compile.</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> MEDIUM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div id="phase-2" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-2')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">02</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 2 — Sân khấu 3D & Hero Section <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ 3D Canvas & Hero Overlay</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Hệ thống phân tầng đồ họa (Tier), Canvas, Hạc (Crane), Lụa (Silk), và Text overlay.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-son-600/35 border border-son-500/30 px-2.5 py-1 rounded text-son-300 font-semibold">⚠️ High Risk</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+              <h4 class="font-mono text-xs text-gold-300 uppercase tracking-widest font-bold">Mô tả Kiến trúc 3D Tier / 3D Adaptive Tiers</h4>
+              <p class="text-xs text-stone-200 mt-2 leading-relaxed">
+                Để tránh giật lag trên máy yếu và mobile, chúng ta chia làm 3 Tier chính dựa vào <code>detect-gpu</code> và <code>prefers-reduced-motion</code>:
+              </p>
+              <ul class="list-disc list-inside text-xs text-stone-300 mt-2 space-y-1.5 leading-relaxed">
+                <li><strong>Tier A (Cinematic - Desktop mạnh):</strong> GLB Hạc đầy đủ chi tiết + Bloom postprocessing + 2000+ hạt tinh vân chuyển động + Motion Tilt.</li>
+                <li><strong>Tier B (Lite - Mobile/GPU yếu):</strong> GLB Hạc dạng Low-Poly Draco, tắt Bloom, giảm hạt bụi xuống &le;600 hạt, tắt chuyển động phụ.</li>
+                <li><strong>Tier C (Still - a11y/Yếu hẳn):</strong> Không load WebGL/Canvas. Sử dụng ảnh tĩnh dạng 2.5D Layered-PNG xếp đè, dịch chuyển nhẹ bằng CSS/motion.</li>
+              </ul>
+            </div>
+            <div class="bg-black/60 p-4 rounded-xl border border-white/10">
+              <h4 class="font-mono text-xs text-son-300 uppercase tracking-widest font-bold">Giảm thiểu rủi ro Hydration / Hydration Mitigation</h4>
+              <ul class="list-disc list-inside text-xs text-stone-200 mt-2 space-y-1.5 leading-relaxed">
+                <li>Bắt buộc import dynamic các file chứa Canvas R3F ở client: <code>const Scene = dynamic(() => import('./Scene'), { ssr: false })</code>.</li>
+                <li>Hiển thị <code>HeroPoster</code> (ảnh WebP render sẵn của Hero) làm placeholder ngay lập tức để đạt LCP nhanh (&lt; 2.5s), Canvas chỉ tải ngầm sau đó.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 2.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-2-1" class="checkbox-custom hidden" onclick="toggleTask('task-2-1')">
+              <label for="task-2-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 2.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">src/three/tier.ts</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Viết logic nhận dạng thiết bị và chọn Tier đồ họa <code>tier.ts</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Đọc thông số từ <code>detect-gpu</code>, lắng nghe CSS query <code>prefers-reduced-motion</code> để ép về Tier C.</p>
+              </div>
+            </div>
+
+            <!-- Task 2.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-2-2" class="checkbox-custom hidden" onclick="toggleTask('task-2-2')">
+              <label for="task-2-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 2.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Scene.tsx</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng R3F Canvas Container tại <code>src/three/Scene.tsx</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Tích hợp <code>PerformanceMonitor</code>, <code>AdaptiveDpr</code>, và <code>ScrollControls</code> để xoay camera mượt dựa trên thanh cuộn thực tế.</p>
+              </div>
+            </div>
+
+            <!-- Task 2.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-2-3" class="checkbox-custom hidden" onclick="toggleTask('task-2-3')">
+              <label for="task-2-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 2.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Placeholders 3D</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo các cấu phần 3D placeholder (dùng primitive hình hộp/mặt phẳng trước khi có asset thật).</p>
+                <ul class="list-disc list-inside text-xs text-stone-300 mt-2 space-y-1.5 ml-1 leading-relaxed">
+                  <li><code>Crane.tsx</code>: placeholder hạc (mesh hình hộp).</li>
+                  <li><code>Silk.tsx</code>: lụa đỏ chuyển động uốn sóng sine nhẹ.</li>
+                  <li><code>Starfield.tsx</code>: hệ thống hạt bụi sao lung linh.</li>
+                  <li>Bloom effect nhẹ ở hậu kỳ (Postprocessing).</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Task 2.4 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-2-4" class="checkbox-custom hidden" onclick="toggleTask('task-2-4')">
+              <label for="task-2-4" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 2.4</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Tier C Fallback</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng component <code>LayeredPNG.tsx</code> cho Tier C.</p>
+                <p class="text-xs text-stone-300 mt-1">Dùng <code>framer-motion</code> tạo hiệu ứng parallax 2.5D giữa các lớp ảnh PNG chồng nhau khi người dùng rê chuột.</p>
+              </div>
+            </div>
+
+            <!-- Task 2.5 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-2-5" class="checkbox-custom hidden" onclick="toggleTask('task-2-5')">
+              <label for="task-2-5" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 2.5</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Hero Overlay</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng lớp phủ chữ tiêu đề Hero bằng HTML thuần (lấy từ copy.ts).</p>
+                <p class="text-xs text-stone-300 mt-1">H1 to MinhNhut, chữ "kiến tạo sản phẩm web" viết nghiêng font Playfair Display nghệ thuật, kèm gợi ý cuộn xuống (scrollHint).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> Hero hoạt động mượt ở 3 tier khác nhau, đổi thiết bị/bật reduced-motion đổi mượt mà.</div>
+            <div class="text-son-300"><strong>Độ khó:</strong> HIGH</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div id="phase-3" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-3')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">03</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 3 — Bố cục & Các mục Trang chủ <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Landing Structure & Layout</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Nav bar, Khung viền hoa văn, Section divider, About section, Skills grid, Footer.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P3-UI</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 3.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-3-1" class="checkbox-custom hidden" onclick="toggleTask('task-3-1')">
+              <label for="task-3-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 3.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Nav Component</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng thanh Menu điều hướng (Nav) ghim trên cùng màn hình.</p>
+                <p class="text-xs text-stone-300 mt-1">Tự mờ/nhạt dần khi cuộn trang &gt; 60px để không che khuất nghệ thuật 3D. Logo cách điệu con hạc vàng.</p>
+              </div>
+            </div>
+
+            <!-- Task 3.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-3-2" class="checkbox-custom hidden" onclick="toggleTask('task-3-2')">
+              <label for="task-3-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 3.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Dividers & Motifs</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo <code>SectionDivider</code> và <code>Eyebrow</code> dùng chung.</p>
+                <p class="text-xs text-stone-300 mt-1">Đường kẻ tinh xảo vàng đồng kèm hoa văn SVG nhỏ ở góc. Eyebrow viết in hoa vàng + gạch ngang nhỏ phía trước.</p>
+              </div>
+            </div>
+
+            <!-- Task 3.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-3-3" class="checkbox-custom hidden" onclick="toggleTask('task-3-3')">
+              <label for="task-3-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 3.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">About Section</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng phần Giới thiệu (About) trang chủ theo lưới bất đối xứng 7/5.</p>
+                <p class="text-xs text-stone-300 mt-1">Chữ lệch trái, font to rõ tự tin, bên phải chừa chỗ làm hiệu ứng chuyển động lụa/mặt nạ lơ lửng.</p>
+              </div>
+            </div>
+
+            <!-- Task 3.4 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-3-4" class="checkbox-custom hidden" onclick="toggleTask('task-3-4')">
+              <label for="task-3-4" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 3.4</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Skills Section</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng phần Kỹ năng (Skills): Chip phân nhóm và hàng logo cuộn ngang.</p>
+                <p class="text-xs text-stone-300 mt-1">Hiển thị các tech stack dạng chip sang trọng. Bên dưới là thanh <code>marquee</code> chữ trôi ngang cực kỳ chậm, tinh tế.</p>
+              </div>
+            </div>
+
+            <!-- Task 3.5 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-3-5" class="checkbox-custom hidden" onclick="toggleTask('task-3-5')">
+              <label for="task-3-5" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 3.5</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Reveal Motion</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Cài đặt chuyển động xuất hiện dần (Scroll Reveal) bằng <code>framer-motion</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Hiệu ứng cuộn tới đâu chữ mọc/fade-up tới đó, tôn trọng thiết lập giảm chuyển động <code>prefers-reduced-motion</code>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> Layout liền mạch, menu sticky nhạy, scroll reveal chạy đúng không giật lag.</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> MEDIUM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div id="phase-4" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-4')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">04</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 4 — Dự án & Trang con <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Project Cards & Subpages</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Card 3D nghiêng (Tilt), Featured projects list, Xem tất cả, Trang /projects, Trang /about.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P4-Pages</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <div class="mb-5 bg-stone-950/80 p-4 rounded-xl border border-white/10 text-xs">
+            <h4 class="font-mono text-gold-300 uppercase tracking-widest font-bold">Ràng buộc hiển thị dự án / Project Links Matrix</h4>
+            <div class="overflow-x-auto mt-3">
+              <table class="w-full text-left font-mono text-stone-300">
+                <thead>
+                  <tr class="border-b border-white/10 text-stone-200">
+                    <th class="py-2 pr-4">Dự án</th>
+                    <th class="py-2 pr-4">Nút Code (Repo)</th>
+                    <th class="py-2 pr-4">Nút Live (Demo)</th>
+                    <th class="py-2">Ghi chú hiển thị</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-white/5">
+                    <td class="py-2.5 pr-4 text-white font-bold">DevTeamOS (PMS)</td>
+                    <td class="py-2.5 pr-4 text-son-300">Có (Public)</td>
+                    <td class="py-2.5 pr-4 text-stone-500">Không</td>
+                    <td class="py-2.5">Order 1. Không badge Private, có link repo.</td>
+                  </tr>
+                  <tr class="border-b border-white/5">
+                    <td class="py-2.5 pr-4 text-white font-bold">DevPath</td>
+                    <td class="py-2.5 pr-4 text-stone-500">Không (Ẩn)</td>
+                    <td class="py-2.5 pr-4 text-gold-300">Có (devpathos.tech)</td>
+                    <td class="py-2.5">Order 2. Live-only.</td>
+                  </tr>
+                  <tr class="border-b border-white/5">
+                    <td class="py-2.5 pr-4 text-white font-bold">SileTravel</td>
+                    <td class="py-2.5 pr-4 text-son-300">Có (Public)</td>
+                    <td class="py-2.5 pr-4 text-stone-500">Không</td>
+                    <td class="py-2.5">Order 3. Repo-only.</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 pr-4 text-white font-bold">ExamRoomAllocator</td>
+                    <td class="py-2.5 pr-4 text-stone-500">Không</td>
+                    <td class="py-2.5 pr-4 text-gold-300">Có (dung.devteamos.me)</td>
+                    <td class="py-2.5">Trong gallery /projects. Live-only.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 4.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-4-1" class="checkbox-custom hidden" onclick="toggleTask('task-4-1')">
+              <label for="task-4-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 4.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">ProjectCard</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Xây dựng Component <code>ProjectCard.tsx</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Có hiệu ứng nghiêng 3D (tilt &le; 8 độ) trên Tier A/B. Tier C đổi thành hiệu ứng viền sáng mượt khi hover. Hiển thị đúng nút Repo/Live theo bảng trên.</p>
+              </div>
+            </div>
+
+            <!-- Task 4.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-4-2" class="checkbox-custom hidden" onclick="toggleTask('task-4-2')">
+              <label for="task-4-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 4.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Featured Section</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng danh sách Dự án nổi bật trang chủ (3 dự án featured).</p>
+                <p class="text-xs text-stone-300 mt-1">Cuối danh sách có nút ghost link "Xem tất cả dự án &rarr;" trỏ sang trang <code>/projects</code>.</p>
+              </div>
+            </div>
+
+            <!-- Task 4.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-4-3" class="checkbox-custom hidden" onclick="toggleTask('task-4-3')">
+              <label for="task-4-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 4.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">src/app/[locale]/projects</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo trang danh sách dự án <code>/projects</code> (Gallery).</p>
+                <p class="text-xs text-stone-300 mt-1">Hiển thị toàn bộ 4 dự án, có bộ lọc theo nhãn công nghệ (tag filter). Thumbnail sử dụng ảnh nháp placeholder trước.</p>
+              </div>
+            </div>
+
+            <!-- Task 4.4 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-4-4" class="checkbox-custom hidden" onclick="toggleTask('task-4-4')">
+              <label for="task-4-4" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 4.4</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">src/app/[locale]/about</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo trang thông tin chi tiết <code>/about</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Viết câu chuyện về quá trình tự học phát triển (story timeline), bảng kỹ năng chi tiết hơn và nút "Tải CV" nổi bật.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> URL /projects và /about render tốt; card click đúng link; nút CV trỏ đúng file.</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> MEDIUM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div id="phase-5" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-5')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">05</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 5 — Form Liên Hệ & API Gửi Mail <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Contact API Route & Form</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Form UI, validation Zod, API Route, Honeypot chống spam, tích hợp Resend SDK.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P5-API</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <div class="mb-5 bg-stone-950/80 p-4 rounded-xl border border-white/10 text-xs">
+            <h4 class="font-mono text-gold-300 uppercase tracking-widest font-bold">An toàn & Chống Spam / Form Security & Anti-spam</h4>
+            <ul class="list-disc list-inside mt-2 space-y-1.5 leading-relaxed text-stone-300">
+              <li><strong>Ẩn Email:</strong> Tuyệt đối không render email dạng text ở frontend để tránh bot quét.</li>
+              <li><strong>Honeypot:</strong> Tạo một trường input ẩn <code>company</code> bằng CSS. Nếu bot điền vào, route server sẽ âm thầm từ chối (trả về status 200 thành công giả để bot tưởng đã spam được).</li>
+              <li><strong>Zod Validation:</strong> Validate chặt chẽ dữ liệu đầu vào cả ở client và server.</li>
+              <li><strong>Rate-limiting:</strong> Khống chế tối đa 5 mail/giờ trên một IP (lưu cache IP đơn giản trên server bằng Map tạm thời/Redis).</li>
+            </ul>
+          </div>
+
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 5.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-5-1" class="checkbox-custom hidden" onclick="toggleTask('task-5-1')">
+              <label for="task-5-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 5.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">ContactForm UI</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Dựng UI Form liên hệ ở chân trang chủ (Footer / Section).</p>
+                <p class="text-xs text-stone-300 mt-1">Input nhập Tên, Email, Lời nhắn. Báo lỗi đỏ rõ ràng dưới mỗi input nếu nhập thiếu hoặc sai định dạng.</p>
+              </div>
+            </div>
+
+            <!-- Task 5.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-5-2" class="checkbox-custom hidden" onclick="toggleTask('task-5-2')">
+              <label for="task-5-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 5.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">api/contact/route.ts</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Viết Route API xử lý gửi thư tại <code>src/app/api/contact/route.ts</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Tích hợp Zod parser, Honeypot (check <code>body.company</code>), check rate-limit theo IP, và dùng Resend SDK để chuyển tiếp email về mail cá nhân của bạn.</p>
+              </div>
+            </div>
+
+            <!-- Task 5.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-5-3" class="checkbox-custom hidden" onclick="toggleTask('task-5-3')">
+              <label for="task-5-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 5.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Dev Logging fallback</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Cấu hình ghi log fallback ở môi trường local.</p>
+                <p class="text-xs text-stone-300 mt-1">Nếu ở môi trường dev mà thiếu <code>RESEND_API_KEY</code>, route sẽ in thẳng nội dung ra console thay vì quăng lỗi, tránh chặn đứng tiến độ chạy thử ở local.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> Nhập form thử, server báo nhận OK, ở môi trường dev in log chuẩn, spam quá 5 lần báo block.</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> MEDIUM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 6 -->
+      <div id="phase-6" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-6')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">06</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 6 — Tối ưu hóa hiệu năng, SEO & Khả năng tiếp cận <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Perf, SEO & a11y</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Metadata, JSON-LD Schema, alt text, focus rings, ngân sách tài nguyên (Budget).</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P6-Optimization</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <div class="mb-5 bg-stone-950/80 p-4 rounded-xl border border-white/10 text-xs">
+            <h4 class="font-mono text-gold-300 uppercase tracking-widest font-bold">Ngân sách Hiệu năng / Performance Budget (§7.5)</h4>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-stone-300">
+              <li><strong>LCP &lt; 2.5 giây</strong> (Tải poster tĩnh cực nhanh trước, Canvas lazy sau).</li>
+              <li>Chữ chạy ban đầu (initial JS bundle) <strong>&lt; 250KB gzipped</strong>.</li>
+              <li>Mô hình 3D Hạc <code>crane.glb</code> <strong>&lt; 1.5MB</strong> sau khi nén Draco.</li>
+              <li>Texture mô hình &le; 1024² (ở Mobile tự giảm &le; 512²).</li>
+            </ul>
+          </div>
+
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 6.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-6-1" class="checkbox-custom hidden" onclick="toggleTask('task-6-1')">
+              <label for="task-6-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 6.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Metadata & JSON-LD</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Cài đặt SEO Metadata cấu trúc Next.js.</p>
+                <p class="text-xs text-stone-300 mt-1">Khai báo title, description, thẻ meta Facebook/Twitter OG (lấy từ site.seo). Tạo file sitemap.ts, robots.txt, và chèn cục JSON-LD Schema dạng <code>Person</code> vào HTML đầu trang để tối ưu tìm kiếm Google.</p>
+              </div>
+            </div>
+
+            <!-- Task 6.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-6-2" class="checkbox-custom hidden" onclick="toggleTask('task-6-2')">
+              <label for="task-6-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 6.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">a11y Audits</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Hoàn thiện khả năng tiếp cận (Accessibility - a11y).</p>
+                <p class="text-xs text-stone-300 mt-1">Gắn thuộc tính <code>aria-hidden="true"</code> cho Canvas R3F, cung cấp văn bản alt text thay thế tương đương cho ảnh tĩnh. Tạo viền focus màu vàng sáng rõ ràng cho mọi nút và thẻ điều khiển.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> Kiểm tra qua lighthouse (chrome-devtools) đạt điểm a11y &gt; 90, SEO &gt; 95.</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> MEDIUM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 7 -->
+      <div id="phase-7" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-7')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">07</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 7 — Viết Unit Tests <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Vitest Unit Testing</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Cài đặt Vitest, viết test cho logic lọc tier và validate form liên hệ.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P7-Testing</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 7.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-7-1" class="checkbox-custom hidden" onclick="toggleTask('task-7-1')">
+              <label for="task-7-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 7.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Vitest Setup</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Cấu hình chạy kiểm thử bằng <code>vitest</code>.</p>
+                <div class="bg-black p-3 rounded border border-white/10 mt-2 font-mono text-xs text-stone-200 overflow-x-auto">
+                  pnpm add -D vitest @vitejs/plugin-react
+                </div>
+              </div>
+            </div>
+
+            <!-- Task 7.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-7-2" class="checkbox-custom hidden" onclick="toggleTask('task-7-2')">
+              <label for="task-7-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 7.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Unit Tests logic</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Viết Unit test cho logic chọn Tier thiết bị và schema validate của form.</p>
+                <p class="text-xs text-stone-300 mt-1">Giả lập đầu vào mock GPU/Motion preferences để test xem hàm chọn Tier chạy chuẩn xác không. Viết test case đúng/sai cho Zod schema của contact form.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> Chạy <code>pnpm test</code> vượt qua 100% test cases.</div>
+            <div class="text-gold-400"><strong>Độ khó:</strong> LOW</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 8 -->
+      <div id="phase-8" class="phase-card bg-ink-800/80 rounded-2xl border border-gold-500/15 overflow-hidden card-glow">
+        <div class="phase-header flex items-center justify-between p-5 cursor-pointer hover:bg-white/5 transition select-none" onclick="toggleAccordion('phase-8')">
+          <div class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-stone-950 border border-gold-500/40 flex items-center justify-center font-mono text-gold-300 font-bold text-base">08</span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white tracking-wide">Phase 8 — Triển khai hạ tầng VPS & CI/CD <span class="text-stone-400 font-sans font-normal text-sm block md:inline md:ml-1">/ Production Deployment</span></h3>
+              <p class="text-xs text-stone-300 mt-1">Dockerfile, docker-compose, Caddyfile, GitHub Actions deployment workflow.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono bg-stone-900 border border-white/10 px-2.5 py-1 rounded text-stone-200 font-medium">P8-Ops</span>
+            <svg class="chevron-icon w-5 h-5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </div>
+
+        <div class="phase-content p-6 border-t border-white/10 bg-black/20">
+          <div class="mb-5 bg-son-600/20 border-l-4 border-son-400 p-4 rounded-r">
+            <h4 class="font-mono text-xs font-bold text-son-300 uppercase tracking-widest">Lưu ý trước khi cấu hình / Prerequisites check</h4>
+            <p class="text-sm text-stone-200 mt-1 leading-relaxed">
+              Bạn cần chuẩn bị sẵn một máy chủ VPS (Droplet), cấu hình DNS trỏ domain <code>minhnhut.devpath.tech</code> về IP VPS đó, và đăng ký dịch vụ gửi mail Resend để lấy API Key điền vào secrets.
+            </p>
+          </div>
+
+          <!-- Tasks -->
+          <div class="space-y-4 task-list">
+            <!-- Task 8.1 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-8-1" class="checkbox-custom hidden" onclick="toggleTask('task-8-1')">
+              <label for="task-8-1" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 8.1</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">Dockerfile</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Viết <code>Dockerfile</code> tối ưu cho Next.js.</p>
+                <p class="text-xs text-stone-300 mt-1">Sử dụng multi-stage build với image nền <code>node:22-alpine</code>, copy thư mục build <code>standalone</code> gọn nhẹ để kích thước Docker image nhỏ nhất.</p>
+              </div>
+            </div>
+
+            <!-- Task 8.2 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-8-2" class="checkbox-custom hidden" onclick="toggleTask('task-8-2')">
+              <label for="task-8-2" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 8.2</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">docker-compose & Caddyfile</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo file cấu hình chạy compose <code>docker-compose.yml</code> và reverse proxy <code>Caddyfile</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Cấu hình Caddy tự động xin cấp chứng chỉ bảo mật SSL/HTTPS (Let's Encrypt) trỏ cổng 443 trực tiếp tới container Next.js.</p>
+              </div>
+            </div>
+
+            <!-- Task 8.3 -->
+            <div class="flex items-start gap-4 p-4 bg-black/40 rounded-xl hover:bg-black/60 transition border border-white/5">
+              <input type="checkbox" id="task-8-3" class="checkbox-custom hidden" onclick="toggleTask('task-8-3')">
+              <label for="task-8-3" class="flex-shrink-0 cursor-pointer w-6 h-6 rounded border-2 border-gold-500/40 flex items-center justify-center bg-stone-950 mt-0.5 transition-all">
+                <svg class="checkbox-icon w-4 h-4 text-white transform scale-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7" /></svg>
+              </label>
+              <div class="flex-grow">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-mono text-xs text-gold-300 font-bold bg-gold-900/30 px-2 py-0.5 rounded border border-gold-500/20">TASK 8.3</span>
+                  <span class="text-xs font-mono text-stone-200 border border-white/10 bg-white/5 px-2 py-0.5 rounded">GitHub Actions</span>
+                </div>
+                <p class="text-sm text-white font-semibold mt-2">Tạo workflow tự động deploy <code>.github/workflows/deploy.yml</code>.</p>
+                <p class="text-xs text-stone-300 mt-1">Khi đẩy code lên branch main, GitHub Actions tự động build image và push lên registry, sau đó SSH trực tiếp vào VPS và pull cập nhật chạy bản compose mới.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-white/10 pt-4 flex flex-wrap justify-between text-xs font-mono text-stone-300 gap-2">
+            <div><strong>Kiểm thử / Validate:</strong> <code>pnpm build</code> chạy build thử thành công, image nén Docker chạy ngon lành ở môi trường kiểm thử.</div>
+            <div class="text-son-300"><strong>Độ khó:</strong> HIGH</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="max-w-5xl mx-auto px-6 mt-16 text-center text-xs font-mono text-stone-500 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div>Lộ trình được tạo tự động khớp với hồ sơ dự án thực tế.</div>
+    <div>MinhNhut Personal Website &bull; 2026</div>
+  </footer>
+
+  <!-- JS Checkbox, Progress and Accordion state management -->
+  <script>
+    const totalCountEl = document.getElementById('total-count');
+    const checkedCountEl = document.getElementById('checked-count');
+    const progressPercentEl = document.getElementById('progress-percent');
+    const progressCircle = document.getElementById('progress-circle');
+    const searchInput = document.getElementById('search-tasks');
+    const checkboxes = document.querySelectorAll('.checkbox-custom');
+
+    // Set total count
+    totalCountEl.textContent = checkboxes.length;
+
+    // Load checked state from localStorage
+    function loadSavedState() {
+      const savedState = JSON.parse(localStorage.getItem('hac-portfolio-roadmap-checked') || '{}');
+      checkboxes.forEach(cb => {
+        if (savedState[cb.id]) {
+          cb.checked = true;
+        } else {
+          cb.checked = false;
+        }
+      });
+      updateProgress();
+    }
+
+    // Save state & update progress
+    function toggleTask(id) {
+      const cb = document.getElementById(id);
+      const savedState = JSON.parse(localStorage.getItem('hac-portfolio-roadmap-checked') || '{}');
+      savedState[id] = cb.checked;
+      localStorage.setItem('hac-portfolio-roadmap-checked', JSON.stringify(savedState));
+      updateProgress();
+    }
+
+    // Recalculate progress bars and total percentage
+    function updateProgress() {
+      let totalChecked = 0;
+
+      // Calculate per-phase progress
+      const phases = ['phase-0', 'phase-1', 'phase-2', 'phase-3', 'phase-4', 'phase-5', 'phase-6', 'phase-7', 'phase-8'];
+
+      phases.forEach(phaseId => {
+        const phaseCard = document.getElementById(phaseId);
+        if (!phaseCard) return;
+        const phaseCbs = phaseCard.querySelectorAll('.checkbox-custom');
+        let phaseChecked = 0;
+        phaseCbs.forEach(cb => {
+          if (cb.checked) {
+            phaseChecked++;
+            totalChecked++;
+          }
+        });
+        const phasePercent = phaseCbs.length > 0 ? (phaseChecked / phaseCbs.length) * 100 : 0;
+        const pbar = document.getElementById(`pbar-${phaseId}`);
+        if (pbar) {
+          pbar.style.width = `${phasePercent}%`;
+        }
+
+        // Highlight phase card if completed
+        if (phaseChecked === phaseCbs.length && phaseCbs.length > 0) {
+          phaseCard.classList.add('completed');
+        } else {
+          phaseCard.classList.remove('completed');
+        }
+      });
+
+      // Update total circular indicator
+      checkedCountEl.textContent = totalChecked;
+      const totalPercent = checkboxes.length > 0 ? Math.round((totalChecked / checkboxes.length) * 100) : 0;
+      progressPercentEl.textContent = `${totalPercent}%`;
+      progressCircle.setAttribute('stroke-dasharray', `${totalPercent}, 100`);
+    }
+
+    // Reset progress
+    function resetProgress() {
+      if (confirm('Bạn có muốn xóa tiến độ đã tick và reset lại từ đầu?')) {
+        localStorage.removeItem('hac-portfolio-roadmap-checked');
+        checkboxes.forEach(cb => cb.checked = false);
+        updateProgress();
+      }
+    }
+
+    // Expand / Collapse Phase Accordions
+    function toggleAccordion(phaseId) {
+      const card = document.getElementById(phaseId);
+      const header = card.querySelector('.phase-header');
+      const content = card.querySelector('.phase-content');
+
+      header.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+
+    // Force Open a phase
+    function togglePhase(phaseId) {
+      const card = document.getElementById(phaseId);
+      const header = card.querySelector('.phase-header');
+      const content = card.querySelector('.phase-content');
+
+      if (!content.classList.contains('active')) {
+        header.classList.add('active');
+        content.classList.add('active');
+      }
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function expandAll() {
+      document.querySelectorAll('.phase-header').forEach(h => h.classList.add('active'));
+      document.querySelectorAll('.phase-content').forEach(c => c.classList.add('active'));
+    }
+
+    function collapseAll() {
+      document.querySelectorAll('.phase-header').forEach(h => h.classList.remove('active'));
+      document.querySelectorAll('.phase-content').forEach(c => c.classList.remove('active'));
+    }
+
+    // Simple search filter
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      document.querySelectorAll('.task-list > div').forEach(taskDiv => {
+        const text = taskDiv.textContent.toLowerCase();
+        if (query === '' || text.includes(query)) {
+          taskDiv.style.display = 'flex';
+          // If searching, make sure the phase containing this task is expanded
+          if (query !== '') {
+            const phaseContent = taskDiv.closest('.phase-content');
+            const phaseHeader = phaseContent.previousElementSibling;
+            phaseContent.classList.add('active');
+            phaseHeader.classList.add('active');
+          }
+        } else {
+          taskDiv.style.display = 'none';
+        }
+      });
+    });
+
+    // Initialize state on load
+    loadSavedState();
+
+    // Auto expand Phase 0 initially
+    setTimeout(() => {
+      toggleAccordion('phase-0');
+    }, 300);
+  </script>
+</body>
+</html>

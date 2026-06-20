@@ -1,0 +1,32 @@
+# Cursor rules — Portfolio "Hạc" (Vietnamese Neo-Traditional Luxe · 3D)
+# Bản tóm cho Cursor. Đọc CLAUDE.md + design-system.md để có đầy đủ ngữ cảnh.
+
+## Bối cảnh
+Portfolio cá nhân của MinhNhut (fullstack dev, Sài Gòn), style "Việt tân cổ điển":
+nền đen sâu hơi ấm + nebula tím, đỏ son, vàng-đồng cho hoa văn, hạc trắng-bạc là
+chủ thể ở hero. Stack: Next.js App Router + TypeScript + Tailwind + React Three
+Fiber + drei + @react-three/postprocessing + lenis + framer-motion + detect-gpu.
+
+## Luật cứng
+- Dark-first: nền luôn nebula/ink, KHÔNG bao giờ nền sáng.
+- Bám SÁT token màu/typography/spacing trong design-system.md (§3, §4, §10). Không chế token mới.
+- Đỏ son = accent chính, dùng tiết chế. Vàng chỉ cho label/đường mảnh/hoa văn, không cho body.
+- Font: Playfair Display (display) · Be Vietnam Pro (body) · JetBrains Mono (code).
+  Phải hỗ trợ đầy đủ dấu tiếng Việt, nạp qua next/font.
+- Hoa văn chỉ ở viền/divider/góc; ruột nội dung sạch.
+- Adaptive 3 tier (A cinematic / B lite / C still). Tôn trọng prefers-reduced-motion → Tier C.
+- Chuyển động chậm, có hồn. Không giật, không hiệu ứng rải rác.
+
+## Hiệu năng & a11y
+- Canvas R3F dynamic import { ssr:false }, có HeroPoster làm loading. LCP < 2.5s.
+- JS initial < 250KB gz; GLB < 1.5MB Draco; frameloop="demand" khi tĩnh.
+- <Canvas aria-hidden>; focus ring gold rõ trên mọi control; alt ảnh mô tả thật.
+
+## Nội dung
+- Lấy data thật từ src/content (copy.ts, projects.ts, skills.ts, site.ts) — không hardcode chữ.
+- Tên: MinhNhut. Email KHÔNG hiện dạng text (dùng form). 3 dự án featured: PMS · DevPath · SileTravel.
+
+## Tránh
+flat startup gradient, neon cyber, glassmorphism generic, emoji/sticker, vui nhộn,
+"AI cream + serif + terracotta", copy chung chung. Code sạch, component tách nhỏ.
+Hỏi lại nếu thiếu asset; chỗ nội dung thật còn thiếu dùng placeholder [...].

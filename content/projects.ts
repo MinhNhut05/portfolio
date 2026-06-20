@@ -3,12 +3,12 @@
  *
  * - `featured: true` + sắp theo `order` → 3 card trên landing. Card order=1 là
  *   "đinh" (Mục 9: PMS đứng đầu vì câu chuyện kỹ thuật mạnh nhất).
- * - `links.repo = null` + `private: true` → dự án không public; UI hiện badge
- *   "Private" thay vì nút GitHub (xem note).
+ * - `links.repo = null` → dự án không gắn repo (private hoặc theo ý user).
  * - `highlights` = điểm nhấn để kể khi phỏng vấn / đọc nhanh.
  * - `thumbnail` trỏ tới ảnh sẽ tạo — xem ASSETS.md (mục "Project thumbnails").
  *
- * TODO: xác nhận lại URL repo đúng owner/tên trước khi deploy.
+ * URL đã verify (gh repo view): devteam-os=PUBLIC · canva-schedule=PUBLIC ·
+ * devpath=PUBLIC · excel-cen=PRIVATE.
  */
 
 export type ProjectAccent = 'son' | 'berry' | 'crane' | 'gold';
@@ -75,12 +75,11 @@ export const projects: Project[] = [
       'RBAC 2 tầng decorator-based: @WorkspaceRoles + guard ở project.',
       'Monorepo ranh giới sạch — contracts type-only, không rò logic.',
     ],
-    links: { repo: null, live: null, private: true },
+    links: { repo: 'https://github.com/MinhNhut05/devteam-os', live: null },
     thumbnail: '/assets/projects/pms-devteamos.webp',
     accent: 'son',
     featured: true,
     order: 1,
-    note: 'Private — chi tiết kiến trúc trao đổi khi phỏng vấn.',
   },
   {
     slug: 'devpath',
@@ -112,7 +111,7 @@ export const projects: Project[] = [
       'Payment HMAC: verify chữ ký webhook MoMo SHA256 / VNPay SHA512 chống giả mạo.',
       'Quota fail-fast: check trước khi gọi AI để tiết kiệm cost.',
     ],
-    links: { repo: 'https://github.com/MinhNhut05/devpath', live: 'https://devpathos.tech' },
+    links: { repo: null, live: 'https://devpathos.tech' },
     thumbnail: '/assets/projects/devpath.webp',
     accent: 'berry',
     featured: true,
@@ -146,7 +145,7 @@ export const projects: Project[] = [
       'OAuth 2.0 token lifecycle đầy đủ: refresh rotation, cooldown, retry queue.',
       'Next.js 15 Server Actions + middleware JWT + RBAC (admin/member).',
     ],
-    links: { repo: 'https://github.com/MinhNhut05/canva-schedule', live: null },
+    links: { repo: 'https://github.com/MinhNhut05/canva-schedule', live: 'https://canva.devteamos.me' },
     thumbnail: '/assets/projects/siletravel.webp',
     accent: 'crane',
     featured: true,
@@ -179,7 +178,7 @@ export const projects: Project[] = [
       'Chia phòng largest-remainder (representative_ratio) + fairness metrics.',
       'History snapshot bất biến: edit tạo version mới → audit & undo không cần query phức tạp.',
     ],
-    links: { repo: 'https://github.com/MinhNhut05/excel-cen', live: 'https://dung.devteamos.me' },
+    links: { repo: null, live: 'https://dung.devteamos.me' },
     thumbnail: '/assets/projects/examroom-allocator.webp',
     accent: 'gold',
     featured: false,

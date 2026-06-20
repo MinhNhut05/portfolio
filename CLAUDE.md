@@ -64,8 +64,7 @@ Khi scaffold: **copy nội dung từ `/content/*.ts`** (đã điền sẵn data 
 - Tên hiển thị: **MinhNhut**. GitHub công khai; **email KHÔNG render dạng text**
   (form POST `/api/contact`, server đọc `CONTACT_TO_EMAIL` từ env).
 - Tông About: **builder tự tin** — nhấn sản phẩm đã ship, không bịa kinh nghiệm.
-- 3 dự án featured (landing): **PMS (đinh) · DevPath · SileTravel**. PMS **private** →
-  hiện badge "Private", không nút repo. ExamRoomAllocator ở gallery `/projects`.
+- 3 dự án featured (landing): **PMS (đinh) · DevPath · SileTravel**. PMS public (repo `devteam-os`); DevPath chỉ gắn live `devpathos.tech` (không gắn repo theo ý user). ExamRoomAllocator ở gallery `/projects` (repo private `excel-cen` → không gắn repo).
 - Có nút **Tải CV** (PDF ở `public/assets/cv/`, user cung cấp; VN trước, EN sau).
 - Thumbnail dự án = **screenshot thật** (DevPath/ExamRoom chụp từ live; PMS/SileTravel user gửi).
 
